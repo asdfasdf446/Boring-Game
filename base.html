@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple 2D Circle Game</title>
+    <style>
+canvas {
+  background-color: #f0f0f0;
+  display: block;
+  margin: auto;
+}
+    </style>
+  </head>
+  <body>
+    <canvas id="gameCanvas" width="1900" height="900"></canvas>
+
+    <script>
+      // 获取Canvas元素和上下文
+      const canvas = document.getElementById('gameCanvas');
+      const ctx = canvas.getContext('2d');
+
+      // 圆形的起始位置
+      let circleX = canvas.width / 2;
+      let circleY = canvas.height / 2;
+      const radius = 10; // 圆形的半径
+
+      // 监听键盘事件
+      document.addEventListener('keydown', function(event) {
+              const step = 5; // 每次按键移动的像素数
+              if (event.key === 'ArrowLeft') {
+                      circleX -= step;
+                    } else if (event.key === 'ArrowRight') {
+                            circleX += step;
+                          } else if (event.key === 'ArrowUp') {
+                                  circleY -= step;
+                                } else if (event.key === 'ArrowDown') {
+                                        circleY += step;
+                                      }
+
+              // 防止圆形移出Canvas
+              circleX = Math.max(radius, Math.min(canvas.width - radius, circleX));
+              circleY = Math.max(radius, Math.min(canvas.height - radius, circleY));
+
+              drawCircle(); // 重新绘制圆形
+            });
+
+      // 绘制圆形的函数
+      function drawCircle() {
+              ctx.clearRect(0, 0, canvas.width, canvas.height); // 清除之前的画面
+              ctx.beginPath();
+              ctx.arc(circleX, circleY, radius, 0, Math.PI * 2, false);
+              ctx.fillStyle = 'blue';
+              ctx.fill();
+              ctx.closePath();
+            }
+
+      // 首次绘制圆形
+      drawCircle();
+    </script>
+  </body>
+</html>
