@@ -1,0 +1,23 @@
+{
+  "name": "boring-game",
+  "version": "1.0.0",
+  "description": "a game which is very, very boring...",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/asdfasdf446/Boring-Game.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/asdfasdf446/Boring-Game/issues"
+  },
+  "homepage": "https://github.com/asdfasdf446/Boring-Game#readme",
+  "dependencies": {
+    "ws": "^8.14.2"
+  }
+}
